@@ -1,6 +1,5 @@
 #The Maping problem in Data Structure
 #Using Stack or Queue!
-#This is not the quickest way
 def move(rat,map):
     map[rat[-1][0]][rat[-1][1]]=0
     for i in range(rat[-1][0]-1,rat[-1][0]+2):
@@ -9,8 +8,7 @@ def move(rat,map):
                 print(i,n)
                 rat.append([i,n])
                 return rat,map
-    if(map[rat[-1][0]][rat[-1][1]]==0):
-        rat.pop(-1)
+    rat.pop(-1) 
     if(not rat):
         return 0
     return rat,map
