@@ -1,3 +1,4 @@
+#programmers.co.kr/learn/courses/30/lessons/42583 SOLUTION
 def solution(bridge_length, weight, truck_weights):
     answer=0
     tmp=[0 for i in range(bridge_length)]
