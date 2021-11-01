@@ -20,5 +20,5 @@ def Infix2Postfix(expression):
     while stacker and stacker[-1]!='(':
         token+=stacker.pop(-1)
     print(token)
-expression='(A+(C+D*F+T*A)*B/C)'
+expression='(A+(C+D*F+T*A)*B/C+B)'
 Infix2Postfix(expression)
