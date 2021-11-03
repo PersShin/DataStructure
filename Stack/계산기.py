@@ -40,5 +40,7 @@ def Infix2Postfix(expression):
         token+=stacker.pop()
     print(token)
     answer(token)
+def Infix2Prefix(expression):
+    
 expression='(1+(2*(3+4)*7))'
 Infix2Postfix(expression)

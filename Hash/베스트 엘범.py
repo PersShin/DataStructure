@@ -12,7 +12,6 @@ def solution(genres, plays):
     for i in total_list:
         total_list[i]=sorted(total_list[i],reverse=True)
     for i in dict:
-        
         answer.append(plays.index(total_list[i][0]))
         plays[plays.index(total_list[i][0])]=0
         if(len(total_list[i])>1):
