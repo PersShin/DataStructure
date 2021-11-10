@@ -15,8 +15,10 @@ class BinaryTree:
             self.insert_value(new,item)
         self._count+=1
     def insert_value(self, node, item):
+        print(node._item, item)
         if(node._item>item):
             if(node._link_l!=None):
+                print(item)
                 self.insert_value(node._link_l,item)
             else:
                 node._link_l=self.Node(item)
@@ -25,19 +27,53 @@ class BinaryTree:
                 self.insert_value(node._link_r,item)
             else:
                 node._link_r=self.Node(item)
-    def printer_post(self,node=None):
+    def printer_postfix(self,node=None):
         if(node==None):
             node=self._head
         if(node._link_l):
-            self.printer_post(node._link_l)
+            self.printer_postfix(node._link_l)
+        if(node._link_r):
+            self.printer_postfix(node._link_r)
+        print(node._item,end=' ')
+    def printer_prefix(self, node=None):
+        if(node==None):
+            node=self._head
+        print(node._item,end=' ')
+        if(node._link_l):
+            self.printer_prefix(node._link_l)
+        if(node._link_r):
+            self.printer_prefix(node._link_r)
+    def printer_inorder(self, node=None):
+        if(node==None):
+            node=self._head
+        if(node._link_l):
+            self.printer_inorder(node._link_l)
         print(node._item,end=' ')
         if(node._link_r):
-            self.printer_post(node._link_r)
+            self.printer_inorder(node._link_r)
+    def printer_level(self,node=None):
+        if(node==None):
+            node=self._head
+        queue=[node]
+        while queue:
+            node=queue.pop(0)
+            if node is not None:
+                print(node._item, end=' ')
+            if(node._link_l):
+                queue.append(node._link_l)
+            if(node._link_r):
+                queue.append(node._link_r)
 
 s=BinaryTree()
 s.appender(10)
-s.appender(1)
+s.appender(5)
 s.appender(12)
-s.appender(2)
-s.printer_post()
-#이런식으로 할 경우 BinaryTree가 아닌 그냥 Tree가 되어버리는 문제가 발생한다.
+s.appender(1)
+s.appender(6)
+s.printer_postfix()
+print(' ')
+s.printer_prefix()
+print(' ')
+s.printer_inorder()
+print('')
+s.printer_level()
