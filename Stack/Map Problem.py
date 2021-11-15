@@ -4,14 +4,12 @@
 def mapMaking(map):
     length=len(map)
     tmp=[[0] for i in range(length+2)]
-    print(tmp)
     for i in range(length+1):
         tmp[0].append(0)
         tmp[length+1].append(0)
     for i in range(0,length):
         tmp[i+1].extend(map[i])
         tmp[i+1].append(0)
-        print(tmp)
     return tmp
 def move(rat,map):
     map[rat[-1][0]][rat[-1][1]]=0
@@ -35,5 +33,5 @@ def find(map):
         if((rat[-1][0]==len(map)-2) & (rat[-1][1]==len(map)-2)):
             break
     print(rat)
-map=[[1,0,0,0],[1,1,0,1],[0,1,0,0],[1,0,1,1]]
+map=[[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]
 find(map)
