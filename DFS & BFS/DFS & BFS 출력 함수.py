@@ -7,7 +7,7 @@ def DFS(n,graph,q):
             DFS(n,graph,i)
 def BFS(n,graph,q):
     queue=deque()
-    queue.append(q)
+    queue.append(q) 
     visited_BFS[q]=1
     while queue:
         tmp=queue.popleft()
